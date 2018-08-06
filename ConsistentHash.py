@@ -1,3 +1,11 @@
+'''
+分布式架构中常用Consistent Hash来进行负载均衡。进行负载均衡的算法需要解决两个问题：
+1.添加或移除节点后，需要保证已存在的key能被映射到新的缓存空间，并且能尽可能少的改变已存在的key的映射关系；
+2.所有的key尽可能的均匀映射到各个节点，充分利用各节点资源，避免某个节点负载过高。
+
+Consistent Hash分别通过hash环形空间和虚拟节点解决以上两个问题，算法详细可查看相关资料，以下是Python的简单实现：
+'''
+
 from collections import OrderedDict
 import hashlib
 
